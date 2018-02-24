@@ -1,0 +1,15 @@
+.words-wrapper {
+    border: 1px #c4c6c4 solid;
+    border-radius: 5px;
+}
+
+.word {
+    font-size: 30px;
+    color: cornflowerblue;
+    font-family: "Calibri", sans-serif;
+    padding: 0 5px;
+}
+
+.current-word {
+    background-color: #f0d7cb;
+}
