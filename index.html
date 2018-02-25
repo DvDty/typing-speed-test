@@ -61,26 +61,15 @@
     <div class="row" style="margin-top:30px;">
         <div class="col-3"></div>
         <div class="col-6 text-center words-wrapper">
-            <div id="words">
-                <span class="word current-word">this</span>
-                <span class="word">test</span>
-                <span class="word">another</span>
-                <span class="word">what</span>
-                <span class="word">test</span>
-                <span class="word">another</span>
-                <span class="word">what</span>
-                <span class="word">test</span>
-                <span class="word">another</span>
-                <span class="word">what</span>
-            </div>
+            <div id="words"></div>
         </div>
     </div>
 
     <div class="row" style="margin-top:30px;">
         <div class="col-4"></div>
         <div class="col-4">
-            <input class="form-control" id="typing_box" type="text"
-                   placeholder="Start typing here to start" onkeyup="startTimer()">
+            <input class="form-control" id="typing_box" type="text" autofocus
+                   placeholder="Start typing here to start" onkeydown="tick()">
         </div>
     </div>
 
