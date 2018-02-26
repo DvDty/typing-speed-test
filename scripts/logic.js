@@ -6,6 +6,7 @@ let typing_box_dom = document.getElementById("typing_box");
 let current_word = '';
 let current_word_dom = '';
 let wpm_dom = document.getElementById("wpm");
+let accuracy_dom = document.getElementById("accuracy");
 let right_words = 0;
 let wrong_words = 0;
 
@@ -50,6 +51,8 @@ document.body.onkeydown = e => {
         current_word_dom.remove();
         document.getElementsByClassName("word")[0].className += " current_word";
         words_dom.innerHTML += '<span class="word">' + getRandomWord() + '</span> ';
+        wpm_dom.innerHTML = Math.round((right_words + wrong_words) / (60 - time) * 60);
+        accuracy_dom.innerHTML = Math.round(right_words / (right_words + wrong_words) * 100);
     }
 };
 
