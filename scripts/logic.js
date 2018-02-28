@@ -101,9 +101,9 @@ function gameOver() {
 	typing_box_dom.disabled = "disabled";
 	console.log("right words: " + right_words);
 	console.log("wrong words: " + wrong_words);
-	points_dom.innerHTML = "You got " + points + " points.";
+	points_dom.innerHTML = "<h4>You got " + points + " points.</h4>";
 	let connector = mistyped <= 1 ? " is " : " are ";
-	mistyped_dom.innerHTML = mistyped.length > 0 ? "Your mistyped words " + connector + ": <br>" + mistyped.join(", ") : '';
+	mistyped_dom.innerHTML = mistyped.length > 0 ? "<h4>Your mistyped words " + connector + ": </h4><br>" + mistyped.join(", ") : '';
 }
 
 initApp();
