@@ -1,91 +1,89 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>VFU JavaScript Project</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>VFU JS Project</title>
 
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+		  integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles/style.css?v=1.0">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="styles/style.css?v=1.0">
 </head>
 
 <body>
 <div class="container">
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-        <a class="navbar-brand" href="#">VFU Project</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-item nav-link" href="#">Typing test <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="#">Records</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-item nav-link" href="#">How does it work?</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+	<nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse text-center">
+		<a class="navbar-brand" href="#">Varna Free University JavaScript Project</a>
+	</nav>
 
-    <div class="row" style="margin-top:30px;">
-        <div class="col">
-            <h3 class="text-center">How fast can you type? Let's check!</h3>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col">
+			<h3 class="text-center">How fast can you type? Let's check!</h3>
+		</div>
+	</div>
 
-    <div class="row" style="margin-top:30px;">
-        <div class="col-4 text-right">
-            <h4>Time left: <span id="timer"></span>s</h4>
-        </div>
+	<div class="row">
+		<div class="col-4 text-right">
+			<h4>Time left: <span id="timer"></span>s</h4>
+		</div>
 
-        <div class="col-4 text-center">
-            <h4>Typing speed: <span id="wpm">0</span> wpm</h4>
-        </div>
+		<div class="col-4 text-center">
+			<h4>Typing speed: <span id="wpm">0</span> wpm</h4>
+		</div>
 
-        <div class="col-4 text-left">
-            <h4>Accuracy: <span id="accuracy">0</span>%</h4>
-        </div>
-    </div>
+		<div class="col-4 text-left">
+			<h4>Accuracy: <span id="accuracy">0</span>%</h4>
+		</div>
+	</div>
 
-    <div class="row" style="margin-top:30px;">
-        <div class="col-3"></div>
-        <div class="col-6 text-center words-wrapper">
-            <div id="words"></div>
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6 text-center words-wrapper">
+			<div id="words"></div>
+		</div>
+	</div>
 
-    <div class="row" style="margin-top:30px;">
-        <div class="col-4"></div>
-        <div class="col-4">
-            <input class="form-control" id="typing_box" type="text" autofocus
-                   placeholder="Start typing here to start" onkeydown="tick()">
-        </div>
-    </div>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="col-4">
+			<input class="form-control" id="typing_box" type="text" autofocus
+				   placeholder="Start typing here to start" onkeydown="tick()">
+		</div>
+	</div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
-            integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
-            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
-            crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
-            integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
-            crossorigin="anonymous"></script>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="col-4">
+			<div id="points" class="text-center"></div>
+		</div>
+	</div>
 
-    <!-- Main logic js -->
-    <script src="static/words.js"></script>
-    <script src="scripts/logic.js"></script>
+	<div class="row">
+		<div class="col-4"></div>
+		<div class="col-4">
+			<div id="mistyped" class="text-center"></div>
+		</div>
+	</div>
+
+	<div class="js">
+		<!-- Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+				integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+				crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+				integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+				crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+				integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+				crossorigin="anonymous"></script>
+
+		<!-- Main logic js -->
+		<script src="static/words.js"></script>
+		<script src="scripts/logic.js"></script>
+	</div>
 </div>
 </body>
 </html>
