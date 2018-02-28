@@ -43,6 +43,11 @@ function tick() {
 }
 
 document.body.onkeydown = e => {
+	console.log(time);
+	if (time === 0) {
+		return;
+	}
+
 	if (e.keyCode === 32) {
 		current_word_dom = document.getElementsByClassName("current_word")[0];
 		current_word = current_word_dom.innerText;
@@ -87,7 +92,7 @@ document.body.onkeydown = e => {
 
 function timer() {
 	let x = setInterval(_ => {
-		if (time > 1) {
+		if (time > 0) {
 			timer_dom.innerHTML = --time;
 		} else {
 			clearInterval(x);
