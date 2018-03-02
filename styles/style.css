@@ -26,3 +26,7 @@ body > div.container > nav.text-center > a.navbar-brand {
 body > div#js {
 	display: none;
 }
+
+#record {
+    color: red;
+}

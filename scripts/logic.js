@@ -23,6 +23,10 @@ function getRandomWord() {
 function initApp() {
 	setWords();
 	timer_dom.innerHTML = time;
+
+	if (localStorage.record === undefined) {
+		localStorage.record = 0;
+	}
 }
 
 function setWords(count = 10) {
@@ -43,7 +47,6 @@ function tick() {
 }
 
 document.body.onkeydown = e => {
-	console.log(time);
 	if (time === 0) {
 		return;
 	}
@@ -106,7 +109,14 @@ function gameOver() {
 	typing_box_dom.disabled = "disabled";
 	console.log("right words: " + right_words);
 	console.log("wrong words: " + wrong_words);
-	points_dom.innerHTML = "<h4>You got " + points + " points.</h4>";
+
+	if (localStorage.record < points) {
+		points_dom.innerHTML = "<h4>You got " + points + " points.</h4> <h4 id='record'>NEW RECORD!</h4>";
+		localStorage.record = points;
+	} else {
+		points_dom.innerHTML = "<h4>You got " + points + " points<br>(the record is " + localStorage.record + ")";
+	}
+
 	let connector = mistyped <= 1 ? " is" : " are";
 	mistyped_dom.innerHTML = mistyped.length > 0 ? "<h4>Your mistyped words " + connector + ": </h4><br>" + mistyped.join(", ") : '';
 }
