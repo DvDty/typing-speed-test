@@ -15,6 +15,7 @@ let wrong_words = 0;
 let accuracy = 0;
 let wpm = 0;
 let mistyped = [];
+let takeActions = true;
 
 function getRandomWord() {
 	return words[Math.floor(Math.random() * words.length)];
@@ -47,11 +48,11 @@ function tick() {
 }
 
 document.body.onkeydown = e => {
-	if (time === 0) {
+	if (!takeActions) {
 		return;
 	}
 
-	if (e.keyCode === 32) {
+	if (e.keyCode === 32 || e.keyCode === 9 || e.keyCode === 13) {
 		current_word_dom = document.getElementsByClassName("current_word")[0];
 		current_word = current_word_dom.innerText;
 
@@ -77,7 +78,9 @@ document.body.onkeydown = e => {
 
 		if (accuracy === 100) {
 			points = wpm * 135;
-		} else if (accuracy < 100 && accuracy >= 95) {
+		} else if (accuracy === 99) {
+			points = wpm * 100;
+		} else if (accuracy < 99 && accuracy >= 95) {
 			points = wpm * 95;
 		} else if (accuracy < 95 && accuracy >= 80) {
 			points = wpm * 70;
@@ -106,6 +109,7 @@ function timer() {
 
 function gameOver() {
 	timer_dom.innerHTML = 0;
+	takeActions = false;
 	typing_box_dom.disabled = "disabled";
 	console.log("right words: " + right_words);
 	console.log("wrong words: " + wrong_words);
